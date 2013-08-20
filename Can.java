@@ -9,17 +9,22 @@ public class Can {
         //below is redundant
         //private boolean isEmpty = false;
         
-        public Can(String material, String contents, boolean isCreatedFromhuman, boolean isFull){
+        public Can(String material, String contents, boolean isCreatedFromHuman, boolean isFull){
                 this.material = material;
                 this.contents = contents;
-                this.isCreatedFromhuman = isCreatedFromhuman;
+                this.isCreatedFromHuman = isCreatedFromHuman;
                 this.isFull = isFull;
         }
         
         public Can(String material, String contents){
-                return new Can(material, contents, true, true) //this is an overload
+                return new Can(material, contents, false, true) //this is an overload
         }
         
+        public Can(String material, String contents, boolean isCreatedFromHuman){
+                return new Can(material, contents, isCreatedFromHuman, true) //this is another overload
+        }
+        
+        //You can't overload isFull with this as the position has been taken by isCreatedFromHuman. 
         
         public void drink(){
                 isFull = false;
